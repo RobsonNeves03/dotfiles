@@ -1,0 +1,75 @@
+# Setup term for programs to be able to use it
+env:
+  TERM: xterm-256color
+
+window:
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: true
+
+  # Startup Mode (changes require restart)
+  startup_mode: Windowed
+
+  padding:
+    x: 5
+
+font:
+  normal:
+    family: Anonymice NF
+    style: Regular
+
+  bold:
+    family: Anonymice NF
+    style: Bold
+
+  italic:
+    family: Anonymice NF
+    style: Italic
+
+  bold_italic:
+    family: Anonymice NF
+    style: Italic
+
+  # Font size
+  size: 14.0
+
+  # Better font rendering for mac
+  use_thin_strokes: true
+
+selection:
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: true
+
+# Live config reload (changes require restart)
+live_config_reload: true
+
+# Nord Colors
+colors:
+  name: Count Von Count
+  author: Baskerville
+  primary:
+    background: "#232c31"
+    foreground: "#c8c8c8"
+  cursor:
+    text: "#232c31"
+    cursor: "#c8c8c8"
+  normal:
+    black: "#303030"
+    red: "#c10023"
+    green: "#a83334"
+    yellow: "#b51d2c"
+    blue: "#8c4b46"
+    magenta: "#7d534f"
+    cyan: "#9a413d"
+    white: "#c6c6c6"
+  bright:
+    black: "#5e5e5e"
+    red: "#ff8781"
+    green: "#ffa095"
+    yellow: "#ff948b"
+    blue: "#feb2aa"
+    magenta: "#ebbbb5"
+    cyan: "#ffaaa0"
+    white: "#ffffff"
+theme: Baskerville - Count Von Count
+
+# Nord Colors
