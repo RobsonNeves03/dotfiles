@@ -45,14 +45,13 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty;focus
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec "rofi -modi drun,run -show drun"
-bindsym $mod+Shift+e exec "rofi -show power-menu -modi power-menu:rofi-power-menu"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -151,7 +150,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -178,29 +177,13 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-bindsym $mod+- mode "resize"
+bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-#        status_command i3status
-#}
+bar {
+        status_command i3status
+}
 
-# Keyboard layout toggle
-exec_always "setxkbmap -model pc104 -layout us,br -variant altgr-intl, -option grp:alt_shift_tab_toggle"
-
-## Screenshots in clipboards
-bindsym Ctrl+4 exec --no-startup-id maim --format=png | xclip -selection clipboard -t image/png
-bindsym Ctrl+$mod+4 exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+4 exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
-
-# Removing borders
-default_border none
-for_window [class="^.*"] border pixel 0
-
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id Arandr
-
-# Feh wallpaper
-exec_always --no-startup-id feh --bg-scale ~/wallpapers/wp1.png
-exec --no-startup-id wal -i ~/wallpapers/wp1.png --backend wal --saturate 1
+# Changes the keyboard layout
+setxbmap -layout us
